@@ -18,10 +18,10 @@
 
     .video_container {
         position: relative;
-        height: 1200px;
+        height: 920px;
         background-color: white;
         overflow:scroll;
-        width: 750px;
+        width: 575px;
         border-radius: 5px;
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -35,13 +35,14 @@
     .video {
         position: relative;
         width: fit-content;
+        height: 920px;
         background-color: white;
-        scroll-snap-align: start;
+        scroll-snap-align: end;
     }
 
     .video_player {
-        object-fit: fill;
-        height: fit-content;
+        object-fit:none;
+        height: 920px;
         width: fit-content;
     }
 
