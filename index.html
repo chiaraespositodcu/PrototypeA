@@ -5,57 +5,208 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title> PrototypeTok </title>
-
-<style>
-    
-
-
-    body {
-        background: black;
-    }
-
-    .container {
-        background: rgb(255, 255, 255);
-        height: 80vw;
-        width: 25vw;
-        display: flex;
-        overflow: auto;
-        gap: 0px;
-        flex-direction: column;
-        scroll-snap-type: y mandatory;
-    }
-    .container:: ::-webkit-scrollbar {
-        display: none;
-    }
-    .reel {
-        min-height: 75vw;
-        min-width: 25vw;
-        background-color: red;
-       scroll-snap-align: start;
-    }
-</style>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" href="style.css"/>
 </head>
+
+
 <body>
-    <h1 style="color: white; font-size: 100px; text-align: center;">PrototypeTok</br>A</h1>
-    <div style="display: flex; justify-content: center;">
-    <div class="container">
-        <div class="reel" style="background-color: blue;"> 
-        <video controls loop muted autoplay="autoplay"> <source src="videos/orange.mp4" type="video/mp4"></video></div>
-        <div class="reel" style="background-color: yellow;">
-        <video controls loop muted autoplay="autoplay"> <source src="videos/banana.mp4" type="video/mp4"></video></div>
-        <div class="reel" style="background-color: green;">
-        <video controls loop muted autoplay="autoplay"> <source src="videos/coffee.mp4" type="video/mp4"></video></div>
-        <div class="reel" style="background-color: pink;"></div>
-        <div class="reel" style="background-color: purple;"></div>
-        <div class="reel" style="background-color: orange;"></div>
-        <div class="reel" style="background-color: turquoise;"></div>
-        <div class="reel" style="background-color: red;"></div>
-    </div>
-</div>
+   
+    <h1 style="color: white; font-size: 80px; text-align: center; font-family: Arial, Helvetica, sans-serif;padding-bottom: 20px;">PrototypeTok</br><b>A</b></h1>
+    <div class="video_container">
+        <!--Prototype start-->
+        <div class="video">
+            <p style="color: black; place-items: center; position: relative; padding-top: 30%; font-size: 40px; text-align: center; font-family: Arial, Helvetica, sans-serif;">Interaction starts here! <br>swipe up to see more contents</p>
+               <img src="icons/scrollup.png" height="300px" style="display:block; margin-left: auto; margin-right: auto;" > 
+            
+            <div class="sidebar_container">
+                <div class="sidebar_buttons">
+                    <img src="icons/like.png" class="button">
+                    <p>12</p>
+                    <img src="icons/comment.png" class="button">
+                    <p>243</p>
+                    <img src="icons/share.png" class="button" height="10px">
+                </div>
+
+            </div>
+        </div>
+        <!-- video starts-->
+        <div class="video">
+            <video controls loop class="video-js" controls src="videos/video2.mp4" class="video_player"></video>
+
+            <!--sidebar-->
+            <div class="sidebar_container">
+                <div class="sidebar_buttons">
+                    <img src="icons/like.png" class="button">
+                    <p>12</p>
+                    <img src="icons/comment.png" class="button">
+                    <p>243</p>
+                    <img src="icons/share.png" class="button" height="10px">
+                </div>
+
+            </div>
+        </div>
+        <!-- video ends-->
+         <!-- video starts-->
+         <div class="video">
+            <video controls loop class="video-js" controls src="videos/video2.mp4" class="video_player"></video>
+
+            <!--sidebar-->
+            <div class="sidebar_container">
+                <div class="sidebar_buttons">
+                    <img src="icons/like.png" class="button">
+                    <p>12</p>
+                    <img src="icons/comment.png" class="button">
+                    <p>243</p>
+                    <img src="icons/share.png" class="button" height="10px">
+                </div>
+
+            </div>
+        </div>
+        <!-- video ends-->
+        <!-- video starts-->
+        <div class="video">
+        <video controls loop class="video-js" controls src="videos/video3.mp4" class="video_player"></video>
+
+        <!--sidebar ends-->
+            <div class="sidebar_container">
+                <div class="sidebar_buttons">
+                    <img src="icons/like.png" class="button">
+                    <p>12</p>
+                    <img src="icons/comment.png" class="button">
+                    <p>243</p>
+                    <img src="icons/share.png" class="button" height="10px">
+                </div>
+
+            </div>
+        </div>
+         <!-- video ends-->
+         <!-- video starts-->
+        <div class="video">
+            <video controls loop class="video-js" controls src="videos/video4.mp4" class="video_player"></video>
+
+            <!--sidebar-->
+            <div class="sidebar_container">
+                <div class="sidebar_buttons">
+                    <img src="icons/like.png" class="button">
+                    <p>342</p>
+                    <img src="icons/comment.png" class="button">
+                    <p>18</p>
+                    <img src="icons/share.png" class="button" height="10px">
+                </div>
+
+            </div>
+        </div>
+        <!-- video ends-->
+     </div>
+
+<script>
+      function playPauseVideo() {
+    let videos = document.querySelectorAll("video");
+    videos.forEach((video) => {
+        // We can only control playback without insteraction if video is mute
+        video.muted = false;
+        // Play is a promise so we need to check we have it
+        let playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then((_) => {
+                let observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (
+                                entry.intersectionRatio !== 1 &&
+                                !video.paused
+                            ) {
+                                video.pause();
+                            } else if (video.paused) {
+                                video.play();
+                            }
+                        });
+                    },
+                    { threshold: 0.2 }
+                );
+                observer.observe(video);
+            });
+        }
+    });
+}
+
+// And you would kick this off where appropriate with:
+playPauseVideo();
+ </script>
+   
+<!--
+<script>
+     let options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5
+    };
+    const videos = document.querySelectorAll('video');
+    for (const video of videos) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => 
+        {
+        if (entry.isIntersecting) 
+        {
+            video.play();
+        } else {video.pause()}
+         })
+    });
+    observer.observe(document.querySelectorAll('video'));
+    }
+-->
+
+
+
+     <!--
+<script>
+    let options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0
+    };
+    let callback = (entries, observer) => {
+        entries.forEach(entry=> {
+            if (entry.target.id == "1")
+            {
+                if(entry.isIntersecting)
+                {
+                entry.target.play();
+                }
+                else 
+                {
+                entry.target.pause();
+                }
+            }
+        })
+    }
+    let observer = new IntersectionObserver(callback, options);
+    observer.observe(document.querySelector('#1'));
+
+</script>
+-->
+<!-- script che avvia e mette in pausa video al click
+<script>
+    let options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0
+    };
+
+    const videos = document.querySelectorAll('video');
+
+for (const video of videos) {
+    video.addEventListener('click', function() {
+    if (video.paused) {
+        video.play();
+    } else {
+video.pause();
+    }
+});
+}
+</script>
+-->
+
 </body>
-
-
-
 
 </html>
