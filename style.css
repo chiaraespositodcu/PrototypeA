@@ -11,17 +11,17 @@
     body {
        color: white;
        background-color: black;
-       height: 70%;
+       height: 100%;
        display: grid;
        place-items: center;
     }
 
     .video_container {
         position: relative;
-        height: 70%;
+        height: 50%;
         background-color: white;
         overflow: scroll;
-        width: 60%;
+        width: 40%;
         max-width: 400px;
         border-radius: 20px;
         -ms-overflow-style: none;
