@@ -21,8 +21,7 @@
         height: 50%;
         background-color: white;
         overflow: scroll;
-        width: 40%;
-        max-width: 400px;
+        width: 450px;
         border-radius: 20px;
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -35,7 +34,7 @@
  
     .video {
         position: relative;
-        height: 60%;
+        height: 100%;
         width: 100%;
         background-color: white;
         scroll-snap-align: start;
