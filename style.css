@@ -18,10 +18,10 @@
 
     .video_container {
         position: relative;
-        height: 620px;
+        height: 1200px;
         background-color: white;
         overflow:scroll;
-        width: 350px;
+        width: 750px;
         border-radius: 5px;
         -ms-overflow-style: none;
         scrollbar-width: none;
