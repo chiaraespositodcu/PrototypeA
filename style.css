@@ -22,6 +22,7 @@
         background-color: white;
         overflow: scroll;
         width: 350px;
+        min-width: 350px;
         border-radius: 20px;
         -ms-overflow-style: none;
         scrollbar-width: none;
