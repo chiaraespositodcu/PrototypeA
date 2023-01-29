@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> PrototypeTok </title>
+
+<style>
+    
+
+
+    body {
+        background: black;
+    }
+
+    .container {
+        background: rgb(255, 255, 255);
+        height: 80vw;
+        width: 25vw;
+        display: flex;
+        overflow: auto;
+        gap: 0px;
+        flex-direction: column;
+        scroll-snap-type: y mandatory;
+    }
+    .container:: ::-webkit-scrollbar {
+        display: none;
+    }
+    .reel {
+        min-height: 75vw;
+        min-width: 25vw;
+        background-color: red;
+       scroll-snap-align: start;
+    }
+</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+    <h1 style="color: white; font-size: 100px; text-align: center;">PrototypeTok</br>A</h1>
+    <div style="display: flex; justify-content: center;">
+    <div class="container">
+        <div class="reel" style="background-color: blue;"> 
+        <video controls loop muted autoplay="autoplay"> <source src="videos/orange.mp4" type="video/mp4"></video></div>
+        <div class="reel" style="background-color: yellow;">
+        <video controls loop muted autoplay="autoplay"> <source src="videos/banana.mp4" type="video/mp4"></video></div>
+        <div class="reel" style="background-color: green;">
+        <video controls loop muted autoplay="autoplay"> <source src="videos/coffee.mp4" type="video/mp4"></video></div>
+        <div class="reel" style="background-color: pink;"></div>
+        <div class="reel" style="background-color: purple;"></div>
+        <div class="reel" style="background-color: orange;"></div>
+        <div class="reel" style="background-color: turquoise;"></div>
+        <div class="reel" style="background-color: red;"></div>
+    </div>
+</div>
+</body>
+
+
+
+
+</html>
