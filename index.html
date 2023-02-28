@@ -7,7 +7,27 @@
 <title> PrototypeTok </title>
 <link rel="stylesheet" href="style.css"/>
 </head>
-
+<script>
+    (function (m, a, z, e) {
+      var s, t;
+      try {
+        t = m.sessionStorage.getItem('maze-us');
+      } catch (err) {}
+    
+      if (!t) {
+        t = new Date().getTime();
+        try {
+          m.sessionStorage.setItem('maze-us', t);
+        } catch (err) {}
+      }
+    
+      s = a.createElement('script');
+      s.src = z + '?t=' + t + '&apiKey=' + e;
+      s.async = true;
+      a.getElementsByTagName('head')[0].appendChild(s);
+      m.mazeUniversalSnippetApiKey = e;
+    })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '52dc008c-b745-4f9e-9f47-8c9bd3f72136');
+    </script>
 
 <body>
     <h1 style="color: white; font-size: 40px; text-align: center; font-family: Arial, Helvetica, sans-serif;padding-bottom: 5px;">PrototypeTok</br><b>A</b></h1>
